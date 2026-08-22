@@ -1,0 +1,527 @@
+
+/* ABOUT — same spacing / typography system as Home */
+.aboutPage {
+  width: 100vw;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background: #08000b;
+  color: var(--yellow);
+  isolation: isolate;
+}
+
+.aboutPage::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: #08000b;
+}
+
+.aboutFluidFallback{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  overflow:hidden;
+  pointer-events:none;
+  background:#08000b;
+}
+.aboutFluidFallback .fluidBlob{
+  position:absolute;
+  width:58vmax;
+  height:58vmax;
+  border-radius:46% 54% 62% 38% / 52% 44% 56% 48%;
+  filter:blur(42px) saturate(1.35);
+  opacity:.82;
+  mix-blend-mode:screen;
+  transform:translate3d(-50%,-50%,0);
+  will-change:transform;
+}
+.aboutFluidFallback .fluidBlob.one{
+  background:radial-gradient(circle at 58% 44%, #ff007d 0 12%, #7c00ff 34%, rgba(50,0,180,.4) 58%, transparent 74%);
+}
+.aboutFluidFallback .fluidBlob.two{
+  background:radial-gradient(circle at 45% 50%, #ff2b00 0 13%, #ff7a00 32%, #ff005e 54%, transparent 74%);
+}
+.aboutFluidFallback .fluidBlob.three{
+  background:radial-gradient(circle at 50% 50%, #6c00ff 0 14%, #bb00ff 36%, rgba(255,0,100,.38) 55%, transparent 74%);
+}
+
+.aboutFluid {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+  background: transparent;
+}
+
+
+
+.aboutFrame {
+  width: 100%;
+  max-width: var(--page-max);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 9px var(--page-pad) 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.aboutHeader {
+  height: 46px;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  column-gap: var(--column-gap);
+  align-items: flex-start;
+  padding: 7px 3px 0 0;
+  position: relative;
+  z-index: 5;
+}
+
+.aboutBrand {
+  height: 46px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.aboutLogo {
+  width: 118px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.aboutNav {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 27px;
+  padding-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.aboutNav a,
+.aboutSearchButton {
+  color: var(--yellow);
+}
+
+.aboutSearchButton {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--yellow);
+  font-family: var(--clash);
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+
+.aboutNav a:hover,
+.aboutNav a:focus-visible,
+.aboutSearchButton:hover,
+.aboutSearchButton:focus-visible {
+  color: var(--yellow);
+  text-decoration: none;
+}
+
+/* no underline / no pseudo-line on navigation */
+
+.aboutMain {
+  min-height: calc(100vh - 65px);
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  column-gap: var(--column-gap);
+  position: relative;
+  z-index: 3;
+}
+
+.aboutCollage {
+  position: absolute;
+  left: -8%;
+  top: 50%;
+  width: 60%;
+  z-index: 2;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-5deg);
+  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, .38));
+  animation: aboutAnaFloat 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.aboutAnaImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.aboutCollageTwo {
+  position: absolute;
+  right: -12%;
+  top: 50%;
+  width: 60%;
+  z-index: 2;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-5deg);
+  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, .38));
+  animation: aboutAnaFloat 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.aboutSoniaImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes aboutAnaFloat {
+  0%, 100% { transform: translateY(-50%) rotate(-5deg); }
+  30% { transform: translateY(calc(-50% - 8px)) rotate(-4.3deg); }
+  65% { transform: translateY(calc(-50% + 5px)) rotate(-5.8deg); }
+}
+
+.aboutCopy {
+  grid-column: 2;
+  width: min(620px, 62vw);
+  justify-self: center;
+  align-self: center;
+  margin-top: -2vh;
+  color: var(--yellow);
+  transform: translate3d(var(--copy-x, 0px), var(--copy-y, 0px), 0);
+  /* El suavizado ya lo hace fluid.js frame a frame (lerp), así que aquí
+     no hace falta transition — evita un doble "amortiguado" que se nota tosco. */
+}
+
+/*
+  Flotación suave y continua, como si el texto estuviera en la
+  superficie del líquido del fondo. Va en un wrapper interno para no
+  chocar con el translate3d de arriba (que sigue al ratón/fluido).
+*/
+.aboutFloat {
+  animation: aboutFloatDrift 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes aboutFloatDrift {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  25%  { transform: translateY(-7px) rotate(-0.35deg); }
+  50%  { transform: translateY(2px) rotate(0.2deg); }
+  75%  { transform: translateY(-4px) rotate(0.3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.aboutCopy p {
+  margin: 0 0 32px;
+  font-family: var(--clash);
+  color: var(--yellow);
+  font-size: clamp(18px, 1.45vw, 23px);
+  font-weight: 400;
+  line-height: .98;
+  letter-spacing: -.045em;
+}
+
+.aboutCopy p:last-child {
+  margin-bottom: 0;
+}
+
+.aboutCopy strong {
+  font-weight: 600;
+}
+
+.aboutLine {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(15px);
+  animation: aboutReveal .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.aboutLine:nth-child(1) { animation-delay: .12s; }
+.aboutLine:nth-child(2) { animation-delay: .24s; }
+.aboutLine:nth-child(3) { animation-delay: .36s; }
+
+@keyframes aboutReveal {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.aboutFooter {
+  position: absolute;
+  right: 23px;
+  bottom: 17px;
+  z-index: 5;
+}
+
+.aboutEmail {
+  color: var(--yellow);
+  text-decoration: none;
+  font-family: var(--clash);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.aboutEmail:hover,
+.aboutEmail:focus-visible {
+  color: var(--yellow);
+  text-decoration: none;
+}
+
+/* keep the exact same small-screen logic as the existing project */
+@media (max-width: 900px) {
+  .aboutFrame {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .aboutHeader,
+  .aboutMain {
+    grid-template-columns: 115px minmax(0, 1fr);
+    column-gap: 10px;
+  }
+
+  .aboutCopy {
+    width: min(620px, 70vw);
+  }
+}
+
+@media (max-width: 900px) {
+  .aboutCollage {
+    left: 18px;
+    width: clamp(175px, 24vw, 250px);
+    opacity: .92;
+  }
+}
+
+@media (max-width: 650px) {
+  .aboutCollage {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(72vw, 285px);
+    margin: 4vh auto 2vh;
+    transform: rotate(-4deg);
+    animation: aboutAnaFloatMobile 8s ease-in-out infinite;
+  }
+
+  @keyframes aboutAnaFloatMobile {
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    30% { transform: rotate(-3.3deg) translateY(-6px); }
+    65% { transform: rotate(-4.8deg) translateY(4px); }
+  }
+
+  .aboutCopy {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aboutCollage + .aboutCopy {
+    margin-top: 0;
+  }
+
+  .aboutFrame {
+    min-height: 100svh;
+    padding: 10px;
+  }
+
+  .aboutHeader {
+    height: 42px;
+    grid-template-columns: 1fr auto;
+    column-gap: 0;
+  }
+
+  .aboutBrand {
+    height: 42px;
+  }
+
+  .aboutLogo {
+    width: 94px;
+  }
+
+  .aboutNav {
+    height: 42px;
+    padding-top: 7px;
+    gap: 18px;
+    font-size: 11px;
+  }
+
+  .aboutMain {
+    display: block;
+    min-height: calc(100svh - 52px);
+  }
+
+  .aboutCopy {
+    width: 100%;
+    padding: 0 16px;
+    margin-top: 0;
+  }
+
+  .aboutCopy p {
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 25px;
+  }
+
+  .aboutFooter {
+    right: 13px;
+    bottom: 14px;
+  }
+
+  .aboutEmail {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aboutCollage {
+    animation: none !important;
+    transform: translateY(-50%) rotate(-5deg) !important;
+  }
+  .aboutCopy {
+    transform: none !important;
+  }
+  .aboutFloat {
+    animation: none !important;
+    transform: none !important;
+  }
+  .aboutLine {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+
+/* The fluid is viewport-wide; all portfolio UI stays inside the same
+   1439px page grid used by Home. */
+@media (min-width: 901px) {
+  .aboutFrame {
+    min-height: 100vh;
+  }
+}
+
+/* Project search — el tamaño/posición del botón ya se define arriba,
+   igual que en Home. Aquí solo se mantiene el color en hover. */
+.aboutSearchButton:hover{color:var(--yellow);}
+
+.searchOverlay{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top:88px;
+  background:rgba(0,0,0,.18);
+  backdrop-filter:blur(4px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .18s ease, visibility .18s ease;
+}
+.searchOverlay.isOpen{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.searchPanel{
+  width:min(560px,calc(100vw - 40px));
+  background:var(--yellow);
+  color:var(--navy);
+  padding:20px;
+  position:relative;
+  box-shadow:0 12px 50px rgba(0,0,0,.25);
+}
+.searchClose{
+  position:absolute;
+  right:14px;top:10px;
+  border:0;background:none;
+  font:inherit;font-size:22px;
+  color:var(--navy);cursor:pointer;
+}
+.searchLabel{
+  display:block;
+  font-size:11px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.projectSearch{
+  width:100%;
+  box-sizing:border-box;
+  border:0;
+  border-bottom:1px solid var(--navy);
+  background:transparent;
+  color:var(--navy);
+  font:inherit;
+  font-size:22px;
+  padding:5px 0 8px;
+  outline:none;
+}
+.projectSearch::placeholder{color:rgba(0,35,48,.48);}
+.searchResults{
+  margin-top:14px;
+  max-height:55vh;
+  overflow:auto;
+}
+.searchResult{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  width:100%;
+  border:0;
+  background:transparent;
+  color:var(--navy);
+  text-align:left;
+  font:inherit;
+  padding:10px 0;
+  cursor:pointer;
+  border-bottom:1px solid rgba(0,35,48,.16);
+}
+.searchResult:hover{padding-left:6px;}
+.searchResultMeta{opacity:.55;font-size:11px;white-space:nowrap;}
+.searchEmpty{font-size:13px;opacity:.65;padding:12px 0;}
+@media(max-width:650px){
+  .searchOverlay{padding-top:70px;}
+  .searchPanel{width:calc(100vw - 28px);padding:16px;}
+  .projectSearch{font-size:19px;}
+}
+
+
+/* About collage: each image keeps its original size and floating animation,
+   but stays hidden until its corresponding name is hovered or focused. */
+.aboutCollage,
+.aboutCollageTwo {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, visibility 0s linear 180ms;
+}
+
+.aboutCollage.isVisible,
+.aboutCollageTwo.isVisible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 180ms ease;
+}
+
+.aboutNameTrigger {
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+
+.aboutNameTrigger:hover,
+.aboutNameTrigger:focus-visible {
+  color: #ff00a8;
+  outline: none;
+}

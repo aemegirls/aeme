@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEME — Creative Calendar</title>
+  <link rel="stylesheet" href="CSS/reset.css">
+  <link rel="stylesheet" href="CSS/variables.css">
+  <link rel="stylesheet" href="CSS/global.css">
+  <link rel="stylesheet" href="CSS/base.css">
+  <link rel="stylesheet" href="CSS/sidebar.css">
+  <link rel="stylesheet" href="CSS/calendar.css">
+  <link rel="stylesheet" href="CSS/cards.css">
+  <link rel="stylesheet" href="CSS/footer.css">
+  <link rel="stylesheet" href="CSS/responsive.css">
+  <link rel="stylesheet" href="CSS/search.css">
+</head>
+<body>
+  <div class="page">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <!--
+          LOGO:
+          Ahora mismo apunta al logo azul oscuro que ya tenías en Assets/Icons.
+          Si quieres usar otra variante de color, cambia solo el nombre del archivo aquí abajo:
+          "aeme logo azul oscuro.png" -> "aeme logo naranja.png" / "aeme logo amarillo.png" / "aeme logo azul claro.png"
+        -->
+        <img class="logo" src="Assets/Icons/aeme%20logo%20azul%20oscuro.png" alt="AEME"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="logoFallback">AEME</div>
+      </div>
+
+      <p class="intro">
+        Hi! We're <strong>Sonia</strong> and <strong>Ana</strong>.
+        We wanted to let you in on our slightly unhinged schedule.
+        Enjoy:)
+      </p>
+      <div class="stickerBoard" id="stickerBoard">
+        
+<!-- AQUÍ APARECEN VUESTROS STICKERS -->
+  <img
+    src="Assets/Images/Ana%20Chill%201.png"
+    class="draggableSticker stickerAnaChill"
+    alt="Ana chilling"
+  >
+
+  <img
+    src="Assets/Images/Ana%20Sing%20Class%201.png"
+    class="draggableSticker stickerAnaSing"
+    alt="Ana singing"
+  >
+
+  <img
+    src="Assets/Images/Sonia%20Chill%201.png"
+    class="draggableSticker stickerSoniaChill"
+    alt="Sonia chilling"
+  >
+
+  <img
+    src="Assets/Images/Sonia%20Art%201.png"
+    class="draggableSticker stickerSoniaArt"
+    alt="Sonia doing art"
+  >
+
+</div>
+
+      <div class="sidebarBottom">
+        <div class="legend" aria-label="Calendar legend">
+          <div class="legendItem"><span class="square pink"></span><span>Birthdays</span></div>
+          <div class="legendItem"><span class="square yellow"></span><span>Tasks</span></div>
+          <div class="legendItem"><span class="square teal"></span><span>More tasks</span></div>
+        </div>
+
+        <button class="appointment" type="button" id="appointmentButton">
+          <span class="appointmentTitle">
+            Book your<br>appointment<br>with us!
+          </span>
+
+          <span class="appointmentNote">
+            (before the good<br>slots disappear)
+          </span>
+
+          <span class="appointmentArrow">»</span>
+
+          <span id="clock"></span>
+        </button>
+
+        <div class="sidebarMarks">
+          <!-- Award/project shortcuts -->
+          <a class="markLink pencilLinkOne" href="tex.html" target="_blank" rel="noopener" aria-label="Open Closet Staples">
+            <img class="markImage pencilOne" src="Assets/Icons/lapiz-1.webp" alt="Closet Staples"
+                 onerror="this.outerHTML='&lt;span class=&quot;pencil pencilOne&quot;&gt;&lt;/span&gt;';">
+          </a>
+          <a class="markLink pencilLinkTwo" href="duolingo.html" target="_blank" rel="noopener" aria-label="Open 404 Lesson Found">
+            <img class="markImage pencilTwo" src="Assets/Icons/lapiz-2.webp" alt="404 Lesson Found"
+                 onerror="this.outerHTML='&lt;span class=&quot;pencil pencilTwo&quot;&gt;&lt;/span&gt;';">
+          </a>
+          <a class="markLink sunLink" href="el-tren-de-la-feria.html" target="_blank" rel="noopener" aria-label="Open El Tren de la Feria">
+            <img class="markImage sunMarkImage" src="Assets/Icons/circulo.png" alt="El Sol Shortlist — El Tren de la Feria"
+                 onerror="this.outerHTML='&lt;span class=&quot;sunMark&quot;&gt;◯&lt;/span&gt;';">
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="dateTitle">
+          <span class="month" id="monthLabel">JULY</span>
+          <span class="year" id="yearLabel">2026</span>
+        </div>
+
+        <nav class="topNav" aria-label="Main navigation">
+          <button class="searchButton" type="button" aria-label="Search" title="Search projects">⌕</button>
+          <a href="about.html">About</a>
+        </nav>
+      </header>
+
+      <section class="calendarCard" aria-label="AEME weekly calendar">
+        <div class="calendarHeader">
+          <div class="timeHeader"></div>
+          <div class="dayHeaders" id="dayHeaders"></div>
+        </div>
+
+        <div class="calendarBody">
+          <div class="timeColumn" id="timeColumn"></div>
+          <div class="daysArea" id="daysArea"></div>
+          <div class="eventsLayer" id="eventsLayer" aria-live="polite"></div>
+          <div class="decorLayer" id="decorLayer" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Never let the time wins.</span>
+        <span>aemegirls@gmail.com</span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- IMPORTANTE: este orden importa. data.js primero, app.js siempre el último. -->
+  <script src="JS/data.js"></script>
+  <script src="JS/calendar.js"></script>
+  <script src="JS/events.js"></script>
+  <script src="JS/clock.js"></script>
+  <script src="JS/app.js"></script>
+  <script src="JS/search.js"></script>
+  <script src="JS/stickers.js"></script>
+</body>
+</html>

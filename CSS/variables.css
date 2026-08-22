@@ -1,0 +1,24 @@
+:root {
+  --background: #FAFAFA;
+  --navy: #00012D;
+  --teal: #005066;
+  --orange: #F58600;
+  --yellow: #FFE95C;
+  --pink: #FF5AA5;
+  --white: #FFFFFF;
+
+  --page-max: 1439px;
+  --page-pad: 20px;
+  --sidebar-width: 128px;
+  --column-gap: 12px;
+
+  --card-radius: 27px;
+  --grid-line: rgba(0, 1, 45, 0.58);
+
+  --radius-calendar: 31px;
+  --radius-button: 25px;
+
+  --clash: "Clash Grotesk", Arial, sans-serif;
+  --inter: "Inter", Arial, sans-serif;
+  --long-cang: "Long Cang", cursive;
+}

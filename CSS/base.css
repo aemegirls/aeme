@@ -1,0 +1,93 @@
+body {
+  min-width: 320px;
+}
+
+.page {
+  width: 100%;
+  max-width: var(--page-max);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 9px 20px 10px;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  column-gap: var(--column-gap);
+}
+
+.main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  height: 46px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.logo {
+  width: 118px;
+  height: auto;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.logoFallback {
+  display: none;
+  font-family: var(--clash);
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.topbar {
+  height: 46px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 7px 3px 0 0;
+}
+
+.dateTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+  line-height: 1;
+}
+
+.month {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+}
+
+.year {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+}
+
+.topNav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  padding-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.topNav a,
+.searchButton {
+  color: var(--navy);
+}
+
+.searchButton {
+  padding: 0;
+  background: transparent;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-1px);
+}

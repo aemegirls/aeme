@@ -1,0 +1,322 @@
+.calendarCard {
+  position: relative;
+  height: calc(100vh - 77px);
+  min-height: 690px;
+  max-height: 1010px;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: var(--card-radius);
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarHeader {
+  height: 80px;
+  flex: 0 0 80px;
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  padding: 13px 13px 0 13px;
+}
+
+.dayHeaders {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.dayHeader {
+  height: 54px;
+  border-right: 1px solid var(--teal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dayHeader:last-child {
+  border-right: 0;
+}
+
+.dayNumber {
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.dayName {
+  font-size: 12px;
+  margin-top: 5px;
+  color: var(--navy);
+  font-weight: 400;
+}
+
+.calendarBody {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  padding: 0 13px 13px;
+}
+
+.timeColumn {
+  display: grid;
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+}
+
+.timeSlot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 9px;
+  font-family: var(--inter);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.daysArea {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+  border-top: 1px solid var(--grid-line);
+}
+
+.gridCell {
+  min-width: 0;
+  border-right: 1px solid rgba(0, 80, 102, 0.28);
+  border-bottom: 1px solid var(--grid-line);
+}
+
+.gridCell:nth-child(7n) {
+  border-right: 0;
+}
+
+.eventsLayer {
+  position: absolute;
+  left: 87px;
+  right: 13px;
+  top: 0;
+  bottom: 13px;
+  pointer-events: none;
+}
+
+.decorLayer {
+  position: absolute;
+  left: 87px;
+  right: 13px;
+  top: 0;
+  bottom: 13px;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.event {
+  position: absolute;
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 8px 9px;
+  color: var(--yellow);
+  background: var(--teal);
+  font-family: var(--long-cang);
+  font-size: 13px;
+  line-height: 1.05;
+  pointer-events: auto;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+/* Hover: solo las tarjetas que llevan a otra sección (event.link en data.js).
+   Sin cambio de brillo: solo se levanta un poco y hace sombra. La imagen
+   del proyecto NO vive dentro de esta tarjeta (ver .eventImageWrap más
+   abajo), así que nunca se mueve ni se ve afectada por este hover. */
+.event.isLink {
+  cursor: pointer;
+}
+
+.event.isLink:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 22px rgba(0, 1, 45, 0.28);
+  z-index: 10;
+}
+
+/*
+  ARREGLADO: el JS aplica las clases "yellow" y "navy" (event.type),
+  pero antes el CSS buscaba ".yellowEvent" / ".navyEvent" / ".orangeEvent",
+  así que esos colores nunca se aplicaban. Ahora coinciden.
+*/
+.event.yellow {
+  background: var(--yellow);
+  color: var(--teal);
+}
+
+.event.orange {
+  background: var(--orange);
+  color: var(--navy);
+}
+
+.event.navy {
+  background: var(--navy);
+  color: var(--orange);
+}
+
+/*
+  Capa de imágenes de proyecto: independiente de las tarjetas.
+  Se dibuja SIEMPRE por encima (z-index alto y fijo) y con
+  pointer-events:none, así los clics le "atraviesan" y llegan a la
+  tarjeta de debajo (el link), pero visualmente la imagen nunca se
+  mueve ni cambia de brillo al pasar el ratón.
+*/
+.eventImageWrap {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 15;
+  display: block;
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), filter 220ms ease;
+  transform-origin: center center;
+}
+
+.eventImageWrap.isLink {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.eventImageWrap.isLink:hover {
+  transform: translateY(-5px) scale(1.10) rotate(-1deg);
+  filter: drop-shadow(0 9px 7px rgba(0,1,45,.20));
+  z-index: 30;
+}
+
+.eventImage {
+  position: absolute;
+  pointer-events: none;
+  object-fit: contain;
+  max-width: none;
+}
+
+
+/* Post-its decorativos (los cuadraditos naranjas "pegados" del diseño de Framer) */
+.postit {
+  position: absolute;
+  width: 88px;
+  height: 68px;
+  background: var(--orange);
+  box-shadow: 2px 4px 10px rgba(0, 1, 45, 0.18);
+  pointer-events: none;
+}
+
+.postit::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 19px;
+  height: 19px;
+  margin-left: -4.5px;
+  border-radius: 50%;
+  background: var(--navy);
+}
+
+.postitImage {
+  position: absolute;
+  pointer-events: none;
+  z-index: 6;
+}
+
+@media (min-width: 1100px) {
+  .event {
+    font-size: 15px;
+  }
+}
+
+.event.searchHit{
+  outline:3px solid var(--yellow);
+  outline-offset:3px;
+  transform:scale(1.025);
+  transition:transform .2s ease, outline-color .2s ease;
+  z-index:20;
+}
+
+/* Every colored project cell is a real link and reacts as a whole cell. */
+.event.isLink {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.event.isLink:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: -3px;
+  z-index: 40;
+}
+
+
+/* Saturday project and any future project without a page yet: same hover feedback. */
+.event.isHover { cursor: pointer; }
+.event.isHover:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 10px 22px rgba(0,1,45,.28); z-index: 10; }
+
+/* Interactive post-its: same original size/image, +5px, with handwritten comments. */
+.decorLayer { pointer-events: none; }
+.postitDraggable {
+  position: absolute;
+  z-index: 20;
+  aspect-ratio: 1 / 1;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.postitDraggable:hover { cursor: grab; }
+.postitDraggable.dragging { cursor: grabbing; z-index: 50; }
+.postitDraggable .postitImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.postitDraggable.postitFallback { background: var(--orange); box-shadow: 2px 4px 10px rgba(0,1,45,.18); }
+.postitDraggable.postitFallback::before { content:""; position:absolute; top:-5px; left:50%; width:19px; height:19px; margin-left:-4.5px; border-radius:50%; background:var(--navy); }
+.postitComment {
+  position: absolute;
+  inset: 16% 10% 14%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  color: var(--navy);
+  font-family: var(--long-cang);
+  font-size: 17px;
+  line-height: 1;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+.postitDraggable { overflow: hidden; }
+
+
+/* Fix the transparent padding inside postit.png so the handwritten text sits ON the visible sticky note. */
+.postitDraggable .postitImage {
+  width: 105%;
+  height: auto;
+  max-width: none;
+  left: -35.5%;
+  top: -27%;
+  inset: auto;
+}
+.postitDraggable .postitComment {
+  inset: 40% 30% 15%;
+
+  z-index: 10;
+
+  font-size: 15px;
+  line-height: 0.8;
+
+  transform: translate(3px, -10px);
+}

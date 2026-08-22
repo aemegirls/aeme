@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEME — About</title>
+  <link rel="stylesheet" href="CSS/reset.css">
+  <link rel="stylesheet" href="CSS/variables.css">
+  <link rel="stylesheet" href="CSS/global.css">
+  <link rel="stylesheet" href="CSS/base.css">
+  <link rel="stylesheet" href="CSS/about.css">
+  <link rel="stylesheet" href="CSS/search.css">
+</head>
+<body>
+
+  <section class="aboutPage" id="about">
+    <canvas class="aboutFluid" id="aboutFluid" aria-hidden="true"></canvas>
+
+    <div class="aboutFrame">
+    <header class="aboutHeader">
+      <div class="aboutBrand">
+        <a href="index.html" aria-label="AEME home">
+          <img class="aboutLogo"
+               src="Assets/Icons/aeme%20logo%20amarillo.png"
+               alt="AEME">
+        </a>
+      </div>
+
+      <nav class="aboutNav" aria-label="Main navigation">
+        <button class="aboutSearchButton" type="button" aria-label="Search" title="Search projects">⌕</button>
+        <a href="index.html">Calendar</a>
+      </nav>
+    </header>
+
+    <main class="aboutMain">
+      <div class="aboutCollage" id="anaAboutCollage" aria-hidden="true">
+        <img
+          class="aboutAnaImage"
+          src="Assets/Images/Ana%201%20About.png"
+          alt=""
+        >
+      </div>
+      <div class="aboutCollageTwo" id="soniaAboutCollage" aria-hidden="true">
+        <img
+          class="aboutSoniaImage"
+          src="Assets/Images/Sonia 1 About.png"
+          alt=""
+        >
+      </div>
+
+      <div class="aboutCopy">
+        <div class="aboutFloat">
+        <p class="aboutLine">
+          Hi! We’re <strong class="aboutNameTrigger" data-about-image="soniaAboutCollage" tabindex="0">Sonia (Art Director)</strong> and <strong class="aboutNameTrigger" data-about-image="anaAboutCollage" tabindex="0">Ana (Copywriter)</strong>,
+          and together we are AEME. We’re living proof that creative chemistry doesn’t come
+          from thinking alike. We’re very different people with different instincts,
+          references, and ways of working. Which means we rarely settle for the first idea.
+        </p>
+
+        <p class="aboutLine">
+          We question each other, challenge each other, and push every concept until it feels
+          inevitable. The only thing we fully agree on is our unhealthy tendency to work at
+          impossible hours. Between 1 a.m. and 9 a.m. (yes, weekends too), that’s usually when
+          the good stuff happens.
+        </p>
+
+        <p class="aboutLine">
+          So if an idea can convince both of us, it can probably convince anyone;)
+        </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="aboutFooter">
+      <a class="aboutEmail" href="mailto:aemegirls@gmail.com">aemegirls@gmail.com</a>
+    </footer>
+    </div>
+  </section>
+
+  <script src="JS/data.js"></script>
+  <script src="JS/fluid.js"></script>
+  <script src="JS/search.js"></script>
+  <script src="JS/about-hover.js"></script>
+</body>
+</html>

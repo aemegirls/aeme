@@ -1,0 +1,628 @@
+.projectPage {
+  width: 100vw;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--navy);
+  color: var(--orange);
+  overflow-x: hidden;
+}
+
+.projectFrame {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 9px var(--page-pad) 36px;
+  position: relative;
+}
+
+/* HEADER — misma retícula que Home */
+.projectHeader {
+  height: 46px;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  column-gap: var(--column-gap);
+  align-items: flex-start;
+  padding: 7px 3px 0 0;
+}
+
+.projectBrand { height: 46px; display:flex; align-items:flex-start; }
+.projectLogo { width:118px; height:auto; display:block; }
+
+.projectNav {
+  height: 46px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:27px;
+  padding-top:2px;
+  font-size:12px;
+  font-weight:500;
+  line-height:1;
+}
+.projectNav a,.projectSearchButton { color:var(--orange); }
+.projectSearchButton {
+  padding:0; border:0; background:transparent; font-family:var(--clash);
+  font-size:23px; line-height:1; cursor:pointer; transform:translateY(-1px);
+}
+
+/* HERO — medidas y posiciones de la referencia Framer */
+.projectHero {
+  display:grid;
+  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  column-gap:var(--column-gap);
+  margin-top:55px;
+}
+.projectTitleBlock {
+  grid-column:2;
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  max-width:500px;
+  min-height:132px;
+}
+
+/* Milkman es la tipografía real entregada para el título */
+@font-face {
+  font-family:"Milkman";
+  src:url("../Fonts/milkman.ttf") format("truetype");
+  font-weight:300;
+  font-style:normal;
+  font-display:swap;
+}
+
+.projectStamp {
+  display:block;
+  background:var(--teal);
+  color:var(--orange);
+  font-family:"Milkman", var(--clash), sans-serif;
+  font-weight:300;
+  text-transform:uppercase;
+  font-size:46px;
+  line-height:.88;
+  letter-spacing:.01em;
+  padding:8px 20px 10px;
+  border-radius:8px;
+  width:max-content;
+}
+.projectStamp.lineOne { transform:rotate(.5deg); }
+.projectStamp.lineTwo {
+  margin-top:-1px;
+  margin-left:14px;
+  transform:rotate(-.4deg);
+}
+.projectHandwritten {
+  font-family:var(--long-cang);
+  color:var(--orange);
+  font-size:20px;
+  line-height:0.80;
+   text-align:right;
+  transform:rotate(-15deg);
+  margin-left:-87px;
+  margin-top:74px;
+  white-space:nowrap;
+}
+
+/* BODY — copy izquierda + vídeo 16:9 a la derecha */
+.projectBody {
+  display:grid;
+  grid-template-columns: var(--sidebar-width) minmax(0,1fr);
+  column-gap:var(--column-gap);
+  margin-top:20px;
+}
+.projectCopy {
+  grid-column:2;
+  display:grid;
+  grid-template-columns: 280px minmax(0,1fr);
+  gap:26px;
+  align-items:start;
+}
+.projectText { padding-top:0; }
+.projectText p {
+  margin:0 0 19px;
+  font-family:var(--clash);
+  font-size:16px;
+  line-height:1.28;
+  color:var(--orange);
+}
+.projectText p:last-child { margin-bottom:0; }
+
+/* El vídeo ES el vídeo de YouTube. No hay imagen/maqueta inventada alrededor. */
+.projectPanel {
+  position:relative;
+  width:87%;
+  aspect-ratio:16 / 9;
+   margin-top:-145px;
+    margin-left:132px;
+  min-height:0;
+  border-radius:12px;
+  overflow:hidden;
+  background:#17134a;
+}
+.projectPanel .projectVideo {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  overflow:hidden;
+  background:#17134a;
+}
+.projectVideo iframe,
+.projectVideo img {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  object-fit:cover;
+}
+.projectVideoPlay {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+}
+.projectVideoPlay::after {
+  content:"";
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:rgba(0,0,0,.55);
+}
+.projectVideoPlay svg {
+  position:absolute;
+  width:23px;
+  height:23px;
+  fill:#fff;
+  margin-left:4px;
+}
+
+/* Duo is a separate floating element, outside the YouTube video */
+.projectPanelMascotLink {
+  position:absolute;
+  left:calc(var(--sidebar-width) + var(--column-gap) + 365px);
+  top:400px;
+  width:156px;
+  z-index:8;
+  display:block;
+  transform:rotate(-2deg);
+  transition:transform 220ms cubic-bezier(.2,.8,.2,1);
+}
+.projectPanelMascotLink:hover {
+  transform:translateX(10px) rotate(3deg) scale(1.16);
+}
+.projectPanelMascot {
+  display:block;
+  width:100%;
+  height:auto;
+  filter:drop-shadow(0 7px 0 rgba(0,1,45,.16));
+}
+
+/* GALERÍA — misma escala visual que Framer */
+.projectGallery {
+  display:grid;
+  grid-template-columns: var(--sidebar-width) minmax(0,1fr);
+  column-gap:var(--column-gap);
+  margin-top:48px;
+}
+.projectGalleryRow {
+  grid-column:2;
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.galleryThumb {
+  display:block;
+  width:100%;
+  aspect-ratio: 1.48 / 1;
+  height:auto;
+  border:0;
+  padding:0;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+  background:#fff;
+  transition:transform 180ms ease, box-shadow 180ms ease;
+}
+.galleryThumb:hover { transform:translateY(-3px) scale(1.012); box-shadow:0 10px 22px rgba(0,1,45,.35); }
+.galleryThumb img { width:100%; height:100%; object-fit:cover; display:block; }
+
+/* Estrella dibujada con CSS + lápiz-1 dentro */
+.projectDoodleLink {
+  position:absolute;
+  left:-92px;
+  top:-22px;
+  width:108px;
+  height:108px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:5;
+  text-decoration:none;
+  transform:rotate(-4deg);
+  transition:transform 180ms cubic-bezier(.2,.8,.2,1);
+}
+.projectDoodleLink:hover { transform:rotate(-24deg) scale(1.08); }
+.projectDoodleStar {
+  position:absolute;
+  inset:0;
+  background:var(--teal);
+  clip-path:polygon(50% 0%,61% 33%,98% 25%,69% 50%,92% 79%,58% 67%,50% 100%,40% 67%,5% 82%,31% 51%,0% 25%,39% 34%);
+  filter:drop-shadow(0 4px 0 rgba(0,1,45,.18));
+}
+.projectDoodlePencil {
+  position:relative;
+  width:42px;
+  height:auto;
+  z-index:2;
+  transform:rotate(-8deg);
+  transition:transform 180ms ease;
+}
+.projectDoodleLink:hover .projectDoodlePencil { transform:rotate(-4deg) scale(1.03); }
+
+.projectComment {
+  position:absolute;
+  right:8px;
+  top:-64px;
+  max-width:220px;
+  font-family:var(--long-cang);
+  color:var(--orange);
+  font-size:13px;
+  line-height:1.2;
+  text-align:right;
+  transform:rotate(-2deg);
+  pointer-events:none;
+  z-index:3;
+}
+
+.projectBackLink {
+  grid-column:1;
+  align-self:end;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1.5px solid var(--orange);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--orange);
+  font-size:20px;
+  line-height:1;
+  margin-top:20px;
+}
+.projectBackLink:hover { background:var(--orange); color:var(--navy); }
+
+.projectFooter {
+  display:grid;
+  grid-template-columns:var(--sidebar-width) minmax(0,1fr);
+  column-gap:var(--column-gap);
+  margin-top:30px;
+}
+.projectEmail {
+  grid-column:2;
+  text-align:right;
+  font-family:var(--clash);
+  font-size:12px;
+  font-weight:500;
+  color:var(--orange);
+}
+
+/* lightbox */
+.projectLightbox {
+  position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,1,45,.88); opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .2s ease, visibility .2s ease;
+}
+.projectLightbox.isOpen { opacity:1; visibility:visible; pointer-events:auto; }
+.lightboxStage { width:min(1100px,92vw); max-height:86vh; position:relative; display:flex; align-items:center; justify-content:center; }
+.lightboxStage img { max-width:100%; max-height:86vh; border-radius:14px; display:block; object-fit:contain; }
+.lightboxClose,.lightboxPrev,.lightboxNext { position:absolute; border:0; background:rgba(0,1,45,.6); color:var(--yellow); cursor:pointer; display:flex; align-items:center; justify-content:center; border-radius:50%; }
+.lightboxClose { top:-46px; right:0; width:34px; height:34px; font-size:20px; }
+.lightboxPrev,.lightboxNext { top:50%; transform:translateY(-50%); width:44px; height:44px; font-size:22px; }
+.lightboxPrev { left:-18px; } .lightboxNext { right:-18px; }
+
+@media (max-width:900px) {
+  .projectHeader,.projectHero,.projectBody,.projectGallery,.projectFooter { grid-template-columns:115px minmax(0,1fr); column-gap:10px; }
+  .projectFrame { padding-left:12px; padding-right:12px; }
+  .projectCopy { grid-template-columns:1fr; }
+  .projectPanel { margin-top:12px; }
+  .projectDoodleLink { left:-60px; width:82px; height:82px; }
+}
+@media (max-width:650px) {
+  .projectHeader,.projectHero,.projectBody,.projectGallery,.projectFooter { grid-template-columns:1fr; }
+  .projectTitleBlock,.projectCopy,.projectGalleryRow,.projectEmail { grid-column:1; }
+  .projectGalleryRow { grid-template-columns:1fr; }
+  .projectDoodleLink { left:0; top:-92px; }
+  .projectComment { position:static; max-width:none; text-align:left; margin:14px 0 0; transform:none; }
+  .lightboxPrev { left:6px; } .lightboxNext { right:6px; }
+}
+.projectStampStack { display:flex; flex-direction:column; align-items:flex-start; }
+
+
+/* PEPSICO / LAY'S project */
+.pepsicoPage .projectNav { gap:28px; }
+.pepsicoPage .projectHero { margin-top:55px; }
+.pepsicoPage .projectTitleBlock { min-height:132px; }
+.pepsicoPage .projectPanel {
+  width:88%;
+  margin-top:-145px;
+  margin-left:120px;
+  overflow:visible;
+}
+.pepsicoPage .projectPanelBag {
+  position:absolute;
+  right:-485px;
+  bottom:-255px;
+  width:525px;
+  height:auto;
+  z-index:8;
+  transform:rotate(5deg);
+  transition:transform 220ms cubic-bezier(.2,.8,.2,1);
+  pointer-events:auto;
+}
+.pepsicoPage .projectPanelBag:hover {
+  transform:rotate(9deg) scale(1.035) translateY(-5px) translateX(-200px);
+}
+.pepsicoPage .projectGallery { margin-top:48px; }
+.pepsicoPage .projectComment {
+  right:auto;
+  left:305px;
+  top:-103px;
+  max-width:170px;
+  text-align:left;
+  transform:rotate(-4deg);
+}
+@media (max-width:900px) {
+  .projectPanelMascotLink { left:116px; top:185px; width:92px; }
+  .pepsicoPage .projectPanel { margin-left:60px; width:90%; }
+  .pepsicoPage .projectPanelBag { width:285px; right:-120px; bottom:-175px; }
+}
+@media (max-width:650px) {
+  .projectPanelMascotLink { left:auto; right:12px; top:165px; width:80px; }
+  .pepsicoPage .projectPanel { margin:12px 0 0; width:100%; }
+  .pepsicoPage .projectPanelBag { width:220px; right:-65px; bottom:-125px; }
+}
+
+/* TUBORG / UNCAPTURED — mantiene la retícula de Duo/Pepsico, con las proporciones propias de Framer */
+.tuborgPage .projectHero { margin-top:55px; }
+.tuborgPage .projectTitleBlock {min-height:132px;}
+
+.tuborgPage .projectStamp {
+  font-size:46px;
+}
+.tuborgPage .projectHandwritten {
+  margin-left:-72px;
+  margin-top:73px;
+}
+.tuborgPage .projectBody { margin-top:20px; }
+
+.tuborgPage .projectPanel {
+ width:88%;
+  margin-top:-145px;
+  margin-left:120px;
+  overflow:visible;
+}
+
+.tuborgPage .projectPanelBottle {
+  position:absolute;
+  right:-195px;
+  bottom:-275px;
+  width:245px;
+  height:auto;
+  z-index:8;
+  transform:rotate(5deg);
+  transition:transform 220ms cubic-bezier(.2,.8,.2,1);
+  pointer-events:auto;
+}
+.tuborgPage .projectPanelBottle:hover {
+  transform:scale(1.055) rotate(2deg) translateX(-80px);
+}
+.tuborgPage .projectGallery {
+  margin-top:48px;
+}
+.tuborgPage .projectGalleryRow {
+  margin-left:60px;
+  width:calc(100% - 60px);
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.tuborgPage .galleryThumb {
+  aspect-ratio:1.48 / 1;
+  border-radius:12px;
+  overflow:hidden;
+  padding:0;
+  border:0;
+}
+.tuborgPage .projectVideo {
+  border-radius:12px;
+}
+.tuborgPage .projectComment {
+  right:auto;
+  left:-78px;
+  top:15px;
+  max-width:145px;
+  text-align:left;
+  transform:rotate(-4deg);
+}
+.tuborgPage .projectBackLink { margin-top:20px; }
+
+@media (max-width:900px) {
+  .tuborgPage .projectTitleBlock { transform:none; }
+  .tuborgPage .projectText { transform:none; }
+  .tuborgPage .projectPanel { width:61%; margin-left:70px; }
+  .tuborgPage .projectPanelBottle { width:130px; right:-85px; }
+  .tuborgPage .projectGalleryRow { margin-left:35px; width:calc(100% - 35px); }
+  .tuborgPage .projectComment { left:-30px; max-width:120px; }
+}
+
+@media (max-width:650px) {
+  .tuborgPage .projectTitleBlock { transform:none; }
+  .tuborgPage .projectText { transform:none; }
+  .tuborgPage .projectPanel { width:100%; margin:12px 0 0; }
+  .tuborgPage .projectPanelBottle { width:115px; right:-45px; top:10px; }
+  .tuborgPage .projectGalleryRow { margin-left:0; width:100%; }
+  .tuborgPage .projectComment { position:static; max-width:none; margin:12px 0 0; text-align:left; transform:none; }
+}
+
+/* TEX / CLOSET STAPLES — misma estructura de proyecto que Duo, Pepsico y Tuborg */
+.texPage .projectHero { margin-top:55px; }
+.texPage .projectTitleBlock { min-height:132px; }
+.texPage .projectStamp.lineOne { width:max-content; }
+.texPage .projectStamp.lineTwo { margin-left:14px; }
+.texPage .projectHandwritten { margin-left:-33px; margin-top:123px; }
+.texPage .projectBody { margin-top:3px; }
+.texPage .projectCopy { grid-template-columns:280px minmax(0,1fr); gap:26px; }
+
+.texPage .projectPanel {
+  width:88%;
+  aspect-ratio:16 / 9;
+  margin-top:-145px;
+  margin-left:120px;
+  overflow:visible;
+  border-radius:12px;
+}
+.texPage .projectVideo { border-radius:12px; overflow:hidden; }
+
+.texPage .projectPanelMilk {
+  position:absolute;
+  right:-275px;
+  bottom:-225px;
+  width:332px;
+  height:auto;
+  z-index:8;
+  pointer-events:auto;
+  transition:transform 220ms cubic-bezier(.2,.8,.2,1);
+}
+.texPage .projectPanelMilk:hover { transform:scale(0.845) translateX(-35px) rotate(1deg); }
+
+.texPage .texComment {
+  position:absolute;
+  left:-66px;
+  top:-18px;
+  width:126px;
+  color:var(--orange);
+  font-family:var(--long-cang);
+  font-size:12px;
+  line-height:1.08;
+  transform:rotate(-5deg);
+  z-index:9;
+  pointer-events:none;
+}
+.texPage .texSparkle {
+  position:absolute;
+   right:65px;
+  color:var(--orange);
+  font-family:Arial,sans-serif;
+  font-size:24px;
+  line-height:2.3;
+  z-index:39;
+  pointer-events:none;
+}
+.texPage .texSparkleOne { left:50px; top:-8px; transform:rotate(8deg); }
+
+.texPage .projectGallery { margin-top:48px; }
+.texPage .projectGalleryRow { grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.texPage .galleryThumb { aspect-ratio:1.48 / 1; border-radius:12px; overflow:hidden; padding:0; border:0; }
+.texPage .texDoodleLink { left:-92px; top:-22px; width:108px; height:108px; transform:rotate(-4deg); }
+.texPage .texDoodleLink:hover { transform:rotate(-24deg) scale(1.08); }
+
+@media (max-width:900px) {
+  .texPage .projectPanel { width:90%; margin-left:60px; }
+  .texPage .projectPanelMilk { width:150px; right:-105px; bottom:-170px; }
+  .texPage .texComment { left:-35px; width:110px; }
+}
+@media (max-width:650px) {
+  .texPage .projectPanel { width:100%; margin:12px 0 0; }
+  .texPage .projectPanelMilk { width:125px; right:-55px; bottom:-135px; }
+  .texPage .texComment { position:static; display:block; width:auto; margin:12px 0 0; transform:none; }
+  .texPage .texSparkle { display:none; }
+}
+
+/* EL TREN DE LA FERIA */
+.trainPage .projectHero { margin-top:55px; }
+.trainPage .projectTitleBlock { min-height:132px; }
+.trainPage .projectStamp { font-size:46px; }
+.trainPage .projectHandwritten { margin-left:-72px; margin-top:101px; }
+.trainPage .projectBody { margin-top:20px; }
+.trainPage .projectPanel {
+  width:88%;
+  margin-top:-145px;
+  margin-left:120px;
+  overflow:visible;
+}
+.trainPage .projectVideo { border-radius:12px; overflow:hidden; }
+.trainTicket {
+  position:absolute;
+  left:-67px;
+  top:-122px;
+  width:330px;
+  height:auto;
+  z-index:9;
+  transform:rotate(-16deg);
+  pointer-events:auto;
+  cursor:pointer;
+  filter:drop-shadow(0 7px 4px rgba(0,1,45,.18));
+  transition:transform 220ms cubic-bezier(.2,.8,.2,1), filter 220ms ease;
+}
+.trainTicket:hover {
+  transform:scale(1.055) rotate(-12deg) translateX(8px);
+  filter:drop-shadow(0 11px 8px rgba(0,1,45,.25));
+}
+.trainComment {
+  position:absolute;
+  right:-35px;
+  top:247px;
+  width:128px;
+  color:var(--orange);
+  font-family:var(--long-cang);
+  font-size:13px;
+  line-height:1.05;
+  text-align:left;
+  transform:rotate(-5deg);
+  z-index:10;
+  pointer-events:none;
+}
+.trainSparkle {
+  position:absolute;
+  color:var(--orange);
+  font-family:Arial,sans-serif;
+  line-height:1;
+  z-index:10;
+  pointer-events:none;
+}
+.trainSparkleOne { right:-23px; top:224px; font-size:29px; transform:rotate(8deg); }
+.trainSparkleTwo { right:-39px; top:292px; font-size:31px; transform:rotate(8deg); }
+.trainDoodleLink {
+  left:-92px;
+  top:-22px;
+  width:108px;
+  height:108px;
+}
+.trainDoodleLink .trainAward {
+  position:relative;
+  width:43px;
+  height:43px;
+  object-fit:contain;
+  z-index:2;
+  mix-blend-mode:normal;
+}
+.trainDoodleLink:hover .trainAward { transform:scale(1.04) rotate(-3deg); }
+@media (max-width:900px) {
+  .trainPage .projectPanel { width:90%; margin-left:60px; }
+  .trainTicket { width:235px; left:-45px; top:-88px; }
+  .trainComment { right:-22px; top:195px; width:105px; font-size:11px; }
+  .trainSparkleOne { right:-15px; top:178px; }
+  .trainSparkleTwo { right:-25px; top:235px; }
+}
+@media (max-width:650px) {
+  .trainPage .projectPanel { width:100%; margin:12px 0 0; }
+  .trainTicket { width:205px; left:-20px; top:-72px; }
+  .trainComment { position:static; display:block; width:auto; margin:14px 0 0; transform:none; }
+  .trainSparkle { display:none; }
+}

@@ -1,0 +1,9 @@
+.footer {
+  height: 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 6px 4px 0 89px;
+  font-size: 12px;
+  line-height: 1;
+}

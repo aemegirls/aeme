@@ -1,0 +1,106 @@
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: 115px minmax(0, 1fr);
+    column-gap: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .intro {
+    width: 100px;
+    font-size: 10px;
+  }
+
+  .appointment {
+    width: 103px;
+  }
+
+  .calendarHeader,
+  .calendarBody {
+    grid-template-columns: 60px minmax(0, 1fr);
+  }
+
+  .eventsLayer,
+  .decorLayer {
+    left: 73px;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    display: block;
+    padding: 10px;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    padding: 0 0 12px;
+  }
+
+  .brand {
+    grid-column: 1;
+  }
+
+  .intro {
+    grid-column: 1;
+    margin: 0;
+  }
+
+  .sidebarBottom {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+  }
+
+  .legend,
+  .sidebarMarks {
+    display: none;
+  }
+
+  .appointment {
+    height: 130px;
+  }
+
+  .clock {
+    display: none;
+  }
+
+  .topbar {
+    height: 42px;
+  }
+
+  .calendarCard {
+    min-height: 620px;
+    height: calc(100vh - 180px);
+  }
+
+  .calendarHeader,
+  .calendarBody {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .timeSlot {
+    font-size: 7px;
+    padding-right: 5px;
+  }
+
+  .dayNumber {
+    font-size: 14px;
+  }
+
+  .dayName {
+    font-size: 7px;
+  }
+
+  .eventsLayer,
+  .decorLayer {
+    left: 61px;
+  }
+
+  .footer {
+    padding-left: 55px;
+  }
+}
