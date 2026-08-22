@@ -17,12 +17,29 @@ function renderEvents() {
     // Si el evento tiene "link" en data.js, la tarjeta se crea como
     // enlace real (<a>); si no, como tarjeta normal (<article>).
     const element = document.createElement(event.link ? "a" : "article");
-    element.className = `event ${event.type || ""} ${event.link ? "isLink" : ""} ${event.hover ? "isHover" : ""}`.trim();
+    element.className = `event ${event.type || ""} ${event.link ? "isLink" : ""} ${event.hover ? "isHover" : ""} ${event.confetti ? "isConfetti" : ""}`.trim();
 
     if (event.link) {
       element.href = event.link;
       element.target = "_blank";
       element.rel = "noopener";
+    }
+
+    if (event.confetti) {
+      element.setAttribute("role", "button");
+      element.setAttribute("tabindex", "0");
+      element.setAttribute("aria-label", "Celebrate AEME portfolio");
+      element.addEventListener("click", e => {
+        e.preventDefault();
+        launchConfetti(e.clientX, e.clientY);
+      });
+      element.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          const rect = element.getBoundingClientRect();
+          launchConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        }
+      });
     }
 
     const left = event.day * colWidth;
@@ -139,4 +156,36 @@ function renderDecorations() {
     note.addEventListener("pointercancel", endDrag);
     layer.appendChild(note);
   });
+}
+
+
+/* Confetti for the AEME PORTFOLIO WEB cells. No external library required. */
+function launchConfetti(originX, originY) {
+  const colors = ["#ff6b00", "#005066", "#001a3d", "#ffd400", "#ffffff"];
+  const pieces = 90;
+
+  for (let i = 0; i < pieces; i++) {
+    const piece = document.createElement("span");
+    piece.className = "confettiPiece";
+    piece.style.left = `${originX}px`;
+    piece.style.top = `${originY}px`;
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.width = `${5 + Math.random() * 6}px`;
+    piece.style.height = `${7 + Math.random() * 9}px`;
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 90 + Math.random() * 260;
+    const x = Math.cos(angle) * distance;
+    const y = Math.sin(angle) * distance + 100;
+    const rotation = (Math.random() - 0.5) * 900;
+
+    piece.style.setProperty("--confetti-x", `${x}px`);
+    piece.style.setProperty("--confetti-y", `${y}px`);
+    piece.style.setProperty("--confetti-rotation", `${rotation}deg`);
+    piece.style.animationDelay = `${Math.random() * 80}ms`;
+    piece.style.animationDuration = `${700 + Math.random() * 700}ms`;
+
+    document.body.appendChild(piece);
+    piece.addEventListener("animationend", () => piece.remove(), { once: true });
+  }
 }

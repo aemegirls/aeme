@@ -61,7 +61,7 @@ const EVENTS = [
     row: 8,
     duration: 1,
     type: "navy",
-    link: "about.html"
+    confetti: true
   },
 
   // MIÉRCOLES
@@ -137,7 +137,7 @@ const EVENTS = [
     row: 8,
     duration: 1,
     type: "navy",
-    link: "about.html"
+    confetti: true
   },
 
   // SÁBADO

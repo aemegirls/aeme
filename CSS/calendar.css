@@ -320,3 +320,50 @@
 
   transform: translate(3px, -10px);
 }
+
+
+/* AEME PORTFOLIO WEB: clicking celebrates instead of opening About. */
+.event.isConfetti {
+  cursor: pointer;
+}
+
+.event.isConfetti:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: -3px;
+}
+
+.confettiPiece {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation-name: aemeConfetti;
+  animation-timing-function: cubic-bezier(.15,.75,.35,1);
+  animation-fill-mode: forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes aemeConfetti {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        calc(-50% + var(--confetti-x)),
+        calc(-50% + var(--confetti-y))
+      )
+      rotate(var(--confetti-rotation));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confettiPiece {
+    animation-duration: 1ms !important;
+  }
+}
