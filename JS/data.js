@@ -51,16 +51,17 @@ const EVENTS = [
     row: 0,
     duration: 1,
     type: "teal",
-    image: "Assets/Images/milk%20brick.png",
-    imageStyle: "right:-12px; bottom:-14px; width:46px; transform:rotate(4deg);",
+    image: "Assets/Icons/lapiz-1.webp",
+    imageStyle: "right:2px; bottom:9px; width:56px; transform:rotate(4deg);",
     link: "tex.html" // Closet Staples — Carrefour / Tex
   },
+  
   {
     title: "AEME\nPORTFOLIO\nWEB",
     day: 0,
     row: 8,
     duration: 1,
-    type: "navy",
+    type:  "light-gray",
     confetti: true
   },
 
@@ -70,7 +71,9 @@ const EVENTS = [
     day: 2,
     row: 5,
     duration: 1,
-    type: "yellow",
+    type: "teal",
+     image: "Assets/Icons/lapiz-2.webp",
+    imageStyle: "left:50%; bottom:13px; width:56px; transform:translateX(-50%); transform:rotate(6deg);",
     link: "duolingo.html" // Duo x Google Chrome — 404 Lesson Found
   },
   {
@@ -78,9 +81,7 @@ const EVENTS = [
     day: 2,
     row: 6,
     duration: 1,
-    type: "yellow",
-    image: "Assets/Images/duo.png",
-    imageStyle: "left:40%; bottom:40px; width:78px; transform:translateX(-50%); transform:rotate(6deg);",
+    type: "teal",
     link: "duolingo.html" // Duo x Google Chrome — 404 Lesson Found
   },
   {
@@ -88,28 +89,28 @@ const EVENTS = [
     day: 2,
     row: 7,
     duration: 1,
-    type: "yellow",
+    type: "teal",
     link: "duolingo.html" // Duo x Google Chrome — 404 Lesson Found
   },
 
   // JUEVES
   {
-    title: "Eating\nwhile\nshopping\nidea",
+    title: "Andalusian\ncampaign",
     day: 3,
     row: 0,
     duration: 1,
-    type: "yellow",
-    image: "Assets/Images/Lays_Imagen.png",
-    imageStyle: "right:1px; bottom:-4px; width:70px; transform:rotate(9deg);",
-    link: "pepsico.html" // Lays / Pepsico
+    type: "teal",
+     image: "Assets/Icons/circulo.png",
+    imageStyle: "right:7px; bottom:8px; width:66px",
+    link: "el-tren-de-la-feria.html" 
   },
   {
     title: "(just in case)",
     day: 3,
     row: 1,
     duration: 1,
-    type: "yellow",
-    link: "pepsico.html"
+    type: "teal",
+    link: "el-tren-de-la-feria.html" 
   },
 
   // VIERNES
@@ -118,7 +119,7 @@ const EVENTS = [
     day: 4,
     row: 3,
     duration: 1,
-    type: "teal",
+    type:  "light-gray",
     image: "Assets/Images/tuborg%20botella%20sola.png",
     imageStyle: "right:14px; top:-16px; width:40px; transform:rotate(-3deg);",
     link: "tuborg.html"
@@ -128,7 +129,7 @@ const EVENTS = [
     day: 4,
     row: 4,
     duration: 1,
-    type: "teal",
+    type:  "light-gray",
     link: "tuborg.html"
   },
   {
@@ -136,37 +137,45 @@ const EVENTS = [
     day: 4,
     row: 8,
     duration: 1,
-    type: "navy",
+    type:  "light-gray",
     confetti: true
   },
 
   // SÁBADO
   {
-    title: "Cattle industry\njob interview",
-    day: 5,
-    row: 0,
-    duration: 2,
-    type: "teal",
-    hover: true // Saturday project: no page yet, but keeps the project-cell hover
-  },
+  title: "Cattle industry\njob interview",
+  day: 5,
+  row: 0,
+  duration: 1,
+  type: "light-gray",
+  hover: true
+},
+{
+  title: "",
+  day: 5,
+  row: 1,
+  duration: 1,
+  type: "light-gray",
+  hover: true
+},
  // DOMINGO
   {
-    title: "Andalusian\ncampaign",
+    title: "Eating\nwhile\nshopping\nidea",
     day: 6,
     row: 7,
     duration: 1,
-    type: "teal",
-    image: "Assets/Images/billete-Andalucia.png",
-    imageStyle: "right:-10px; bottom:15px; width:112px; transform:rotate(85deg);",
-    link: "el-tren-de-la-feria.html"
+    type:  "light-gray",
+    image: "Assets/Images/Lays_Imagen.png",
+    imageStyle: "right:1px; bottom:-4px; width:70px; transform:rotate(9deg);",
+    link: "pepsico.html"
   },
   {
     title: "DEADLINE\nTONIGHT!!!",
     day: 6,
     row: 8,
     duration: 1,
-    type: "teal",
-    link: "el-tren-de-la-feria.html" // El Tren de la Feria
+    type:  "light-gray",
+    link: "pepsico.html"
   }
 ];
 

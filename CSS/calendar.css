@@ -160,6 +160,10 @@
   background: var(--navy);
   color: var(--orange);
 }
+.event.light-gray {
+  background: #f0f0f0;
+  color: #001A3D;
+}
 
 /*
   Capa de imágenes de proyecto: independiente de las tarjetas.

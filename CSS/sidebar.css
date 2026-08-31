@@ -14,15 +14,14 @@
 }
 
 .sidebarBottom {
-  margin-top: auto;
+  margin-top: 95px;
   padding-bottom: 0;
 }
-
 .legend {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin: 0 0 65px 1px;
+  margin: 0 0 20px 1px;
 }
 
 .legendItem {
@@ -54,7 +53,7 @@
 
 .appointment {
   width: 112px;
-  height: 325px;
+  height: 279px;
   border-radius: 19px;
   background: var(--navy);
   color: var(--orange);
@@ -220,6 +219,13 @@
   height: 210px;
   margin-top: 15px;
   overflow: visible;
+}
+.stickMe {
+  font-family: var(--inter);
+  font-size: 9px;
+  color: var(--navy);
+  margin: -8px 0 0 0;
+  text-align: center;
 }
 
 /* Todos los stickers */
