@@ -46,7 +46,7 @@ const EVENTS = [
 
   // LUNES
   {
-    title: "Campaign for\nsupermarket but with\nclothes!!",
+    title: "Clothes in food\npackaging\n(rough idea)",
     day: 0,
     row: 0,
     duration: 1,
@@ -66,7 +66,7 @@ const EVENTS = [
 
   // MIÉRCOLES
   {
-    title: "owl and\ndinosaur\ngame",
+    title: "Owl and\ndinosaur\ngame",
     day: 2,
     row: 5,
     duration: 1,
@@ -94,7 +94,7 @@ const EVENTS = [
 
   // JUEVES
   {
-    title: "eating\nwhile\nshopping\nidea",
+    title: "Eating\nwhile\nshopping\nidea",
     day: 3,
     row: 0,
     duration: 1,
@@ -142,7 +142,7 @@ const EVENTS = [
 
   // SÁBADO
   {
-    title: "cattle industry\njob interview",
+    title: "Cattle industry\njob interview",
     day: 5,
     row: 0,
     duration: 2,

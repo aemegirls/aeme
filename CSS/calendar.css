@@ -120,8 +120,8 @@
   padding: 8px 9px;
   color: var(--yellow);
   background: var(--teal);
-  font-family: var(--long-cang);
-  font-size: 13px;
+  font-family: var(--clash);
+  font-size: 12px;
   line-height: 1.05;
   pointer-events: auto;
   transition: transform 160ms ease, box-shadow 160ms ease;
