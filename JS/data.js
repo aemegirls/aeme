@@ -133,7 +133,7 @@ const EVENTS = [
     link: "tuborg.html"
   },
   {
-    title: "AEME\nPORTFOLIO\nWEB",
+    title: "Art\nDirection\nstuff",
     day: 4,
     row: 8,
     duration: 1,
