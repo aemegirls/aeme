@@ -52,7 +52,7 @@ const EVENTS = [
     duration: 1,
     type: "teal",
     image: "Assets/Icons/lapiz-1.webp",
-    imageStyle: "right:2px; bottom:9px; width:56px; transform:rotate(4deg);",
+    imageStyle: "right:-5px; bottom:-10px; width:76px; transform:rotate(4deg);",
     link: "tex.html" // Closet Staples — Carrefour / Tex
   },
   
@@ -73,7 +73,7 @@ const EVENTS = [
     duration: 1,
     type: "teal",
      image: "Assets/Icons/lapiz-2.webp",
-    imageStyle: "left:50%; bottom:13px; width:56px; transform:translateX(-50%); transform:rotate(6deg);",
+    imageStyle: "left:50%; bottom:-13px; width:76px; transform:translateX(-50%); transform:rotate(6deg);",
     link: "duolingo.html" // Duo x Google Chrome — 404 Lesson Found
   },
   {
@@ -101,7 +101,7 @@ const EVENTS = [
     duration: 1,
     type: "teal",
      image: "Assets/Icons/circulo.png",
-    imageStyle: "right:7px; bottom:8px; width:66px",
+    imageStyle: "right:7px; bottom:1px; width:70px",
     link: "el-tren-de-la-feria.html" 
   },
   {
@@ -119,9 +119,8 @@ const EVENTS = [
     day: 4,
     row: 3,
     duration: 1,
-    type:  "light-gray",
-    image: "Assets/Images/tuborg%20botella%20sola.png",
-    imageStyle: "right:14px; top:-16px; width:40px; transform:rotate(-3deg);",
+    type:  "navy",
+    
     link: "tuborg.html"
   },
   {
@@ -129,7 +128,7 @@ const EVENTS = [
     day: 4,
     row: 4,
     duration: 1,
-    type:  "light-gray",
+    type:  "navy",
     link: "tuborg.html"
   },
   {
@@ -147,15 +146,15 @@ const EVENTS = [
   day: 5,
   row: 0,
   duration: 1,
-  type: "light-gray",
+  type: "navy",
   hover: true
 },
 {
-  title: "",
+  title: "(you never know)",
   day: 5,
   row: 1,
   duration: 1,
-  type: "light-gray",
+  type: "navy",
   hover: true
 },
  // DOMINGO
@@ -164,9 +163,8 @@ const EVENTS = [
     day: 6,
     row: 7,
     duration: 1,
-    type:  "light-gray",
-    image: "Assets/Images/Lays_Imagen.png",
-    imageStyle: "right:1px; bottom:-4px; width:70px; transform:rotate(9deg);",
+    type:  "navy",
+   
     link: "pepsico.html"
   },
   {
@@ -174,7 +172,7 @@ const EVENTS = [
     day: 6,
     row: 8,
     duration: 1,
-    type:  "light-gray",
+    type:  "navy",
     link: "pepsico.html"
   }
 ];

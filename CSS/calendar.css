@@ -158,10 +158,17 @@
 
 .event.navy {
   background: var(--navy);
-  color: var(--orange);
+  color: var(--yellow);
+  
 }
 .event.light-gray {
-  background: #f0f0f0;
+  background: none;
+  color: var(--teal);
+  transition: background-color 0.2s ease;
+}
+
+.event.light-gray:hover {
+  background: var(--yellow);
   color: #001A3D;
 }
 
