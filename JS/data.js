@@ -137,7 +137,7 @@ const EVENTS = [
     row: 8,
     duration: 1,
     type:  "light-gray",
-    confetti: true
+     link: "art-direction-stuff.html"
   },
 
   // SÁBADO
