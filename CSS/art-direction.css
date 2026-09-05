@@ -1,0 +1,273 @@
+/* =========================================================
+   AEME — ART DIRECTION STUFF
+   =========================================================
+
+   IMPORTANT:
+   The header intentionally uses the ORIGINAL .projectFrame and
+   .projectHeader from project.css. Only the gallery is customized here.
+   If you want to make the gallery narrower/wider, change ONLY:
+
+       .artDirectionGallery { width: 100%; }
+
+   100% = same width as the original project header/frame.
+   ========================================================= */
+
+.artDirectionPage {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------
+   GALLERY WIDTH
+   --------------------------------------------------------- */
+.artDirectionGallery {
+  width: 100%;
+  margin: 7px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/*
+   IMPORTANT: project.css gives .galleryThumb an aspect-ratio.
+   That was causing the image to overflow its button and overlap
+   the following rows. Reset it here so every image keeps its own
+   natural dimensions.
+*/
+.artDirectionGallery .galleryThumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: transparent;
+  cursor: zoom-in;
+  line-height: 0;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.artDirectionGallery .galleryThumb:hover {
+  transform: translateY(-2px) scale(1.004);
+  box-shadow: 0 10px 22px rgba(0, 1, 45, .30);
+}
+
+.artDirectionGallery .galleryThumb:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* Natural image/video proportions — NO CROPPING. */
+.artDirectionGallery .galleryThumb img,
+.artDirectionGallery .galleryThumb video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0;
+  object-fit: contain;
+}
+
+/* ---------------------------------------------------------
+   LAYOUT — matches the Framer composition
+   --------------------------------------------------------- */
+
+/* 1 — Almost Symetrical: full-width horizontal */
+.artHero img {
+  aspect-ratio: auto;
+}
+
+/* 2 — Canasta + Pijama: two columns */
+.artSplit {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.artSplit .galleryThumb {
+  align-self: start;
+}
+.artTriple {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.artTriple .galleryThumb {
+  align-self: start;
+}
+/* 3 — Green / Black: full-width horizontal */
+.artGreen img {
+  aspect-ratio: auto;
+}
+
+/* 4 — Aura: square cover + two horizontal spreads */
+.artMosaic {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.artAura img {
+  aspect-ratio: auto;
+}
+
+.artStack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 5 — Gymnast work: preserve the original proportions */
+.artSplitBottom .galleryThumb img,
+.artSplitBottom .galleryThumb video {
+  aspect-ratio: auto;
+}
+
+/* Video plays in the gallery without requiring a click. */
+.artVideoThumb {
+  position: relative;
+  background: var(--navy);
+  cursor: zoom-in;
+}
+
+.artVideoThumb video {
+  cursor: zoom-in;
+}
+
+/* ---------------------------------------------------------
+   LIGHTBOX
+   --------------------------------------------------------- */
+.projectLightbox img[hidden],
+.projectLightbox video[hidden] {
+  display: none !important;
+}
+
+.projectLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 1, 45, .94);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.projectLightbox.isOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lightboxStage {
+  position: relative;
+  width: min(96vw, 1500px);
+  height: min(92vh, 980px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxStage img,
+.lightboxStage video {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, .42);
+}
+
+.lightboxStage video {
+  background: #000;
+}
+
+.lightboxPrev,
+.lightboxNext,
+.lightboxClose {
+  position: absolute;
+  z-index: 3;
+  border: 0;
+  color: var(--orange);
+  background: var(--navy);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxPrev,
+.lightboxNext {
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.lightboxPrev { left: -58px; }
+.lightboxNext { right: -58px; }
+
+.lightboxClose {
+  top: -8px;
+  right: -8px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+@media (max-width: 760px) {
+  .artDirectionGallery {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .artSplit,
+  .artMosaic {
+    gap: 10px;
+  }
+
+  .projectLightbox {
+    padding: 16px;
+  }
+
+  .lightboxStage {
+    width: 94vw;
+    height: 90vh;
+  }
+
+  .lightboxPrev { left: 8px; }
+  .lightboxNext { right: 8px; }
+  .lightboxClose { top: 8px; right: 8px; }
+}
+
+@media (max-width: 520px) {
+ .artSplit,
+.artMosaic,
+.artTriple {
+  grid-template-columns: 1fr;
+}
+}
