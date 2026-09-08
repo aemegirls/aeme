@@ -136,7 +136,7 @@ const EVENTS = [
     day: 4,
     row: 8,
     duration: 1,
-    type:  "light-gray",
+    type:  "yellow",
      link: "art-direction-stuff.html"
   },
 
