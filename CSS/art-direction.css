@@ -271,3 +271,57 @@
   grid-template-columns: 1fr;
 }
 }
+/* ESPIALIDOSO / MATATA — image swap */
+.artSwap {
+  position: relative;
+  overflow: hidden;
+}
+
+.artSwap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.artSwap img + img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: swapMockups 4s infinite;
+}
+
+.artSwap img:first-child {
+  animation: swapMockupsFirst 4s infinite;
+}
+
+@keyframes swapMockupsFirst {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  50%,
+  95% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes swapMockups {
+  0%,
+  45% {
+    opacity: 0;
+  }
+
+  50%,
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
