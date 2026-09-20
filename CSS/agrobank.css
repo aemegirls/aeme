@@ -1,0 +1,481 @@
+/* =========================================================
+   AEME — AGROBANK
+   Página específica del proyecto AgroBank
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.agrobankPage .agroHero {
+  margin-top: 55px;
+}
+
+.agrobankPage .projectTitleBlock {
+  min-height: 132px;
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
+
+.agrobankPage .projectHandwritten {
+  margin-left: -130px;
+  margin-top: 72px;
+}
+
+
+/* =========================================================
+   BODY
+   ========================================================= */
+
+.agrobankPage .agroBody {
+  margin-top: 10px;
+}
+
+.agrobankPage .projectCopy {
+  grid-template-columns: 370px minmax(0, 1fr);
+}
+
+
+/* COPY */
+
+.agrobankPage .agroText {
+  padding-top: 34px;
+}
+
+.agrobankPage .agroText p {
+  margin-bottom: 19px;
+}
+
+
+/* =========================================================
+   PIEZA PRINCIPAL
+   ========================================================= */
+
+.agroMainPiece {
+
+  position: relative;
+
+  width: 87%;
+
+  margin-top: -95px;
+  margin-left: 132px;
+
+}
+
+
+/* pequeño texto sobre la pieza */
+
+.agroMainPieceLabel {
+
+  position: absolute;
+
+  top: -25px;
+  left: 0;
+
+  font-family: var(--clash);
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  color: var(--orange);
+
+  letter-spacing: .04em;
+
+  text-transform: uppercase;
+
+}
+
+
+/* imagen */
+
+.agroMainImage {
+
+  width: 100%;
+
+  height: auto;
+
+  aspect-ratio: auto;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: transparent;
+
+}
+
+
+/* MUY IMPORTANTE:
+   AgroBank usa prints y no queremos que se recorten.
+*/
+
+.agroMainImage img {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+}
+
+
+/* =========================================================
+   GALERÍA DE PRINTS
+   ========================================================= */
+
+.agrobankPage .agroGallery {
+
+  margin-top: 48px;
+
+}
+
+
+.agroPrintGrid {
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+
+}
+
+
+.agroPrintGrid .galleryThumb {
+
+  aspect-ratio: auto;
+
+  height: auto;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: transparent;
+
+}
+
+
+.agroPrintGrid .galleryThumb img {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+}
+
+
+/* =========================================================
+   COMENTARIO
+   ========================================================= */
+
+.agroComment {
+
+  right: 0;
+
+  top: -65px;
+
+  max-width: 230px;
+
+  text-align: right;
+
+  transform: rotate(-3deg);
+
+}
+
+
+/* =========================================================
+   SPOT PROPOSAL
+   ========================================================= */
+
+.agroSpotSection {
+
+  display: grid;
+
+  grid-template-columns:
+    var(--sidebar-width)
+    minmax(0, 1fr);
+
+  column-gap: var(--column-gap);
+
+  margin-top: 80px;
+
+  position: relative;
+
+}
+
+
+/* texto */
+
+.agroSpotIntro {
+
+  grid-column: 2;
+
+  width: 370px;
+
+  margin-left: -84px;
+
+  padding-top: 10px;
+
+}
+
+
+.agroSpotEyebrow {
+
+  display: block;
+
+  margin-bottom: 13px;
+
+  font-family: var(--clash);
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  color: var(--orange);
+
+  letter-spacing: .05em;
+
+}
+
+
+.agroSpotIntro h2 {
+
+  margin: 0 0 20px;
+
+  font-family: var(--clash);
+
+  font-size: 30px;
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  color: white;
+
+}
+
+
+.agroSpotIntro p {
+
+  margin: 0 0 20px;
+
+  font-family: var(--clash);
+
+  font-size: 16px;
+
+  line-height: 1.28;
+
+  color: white;
+
+}
+
+
+.agroSpotStatus {
+
+  display: inline-block;
+
+  padding: 7px 10px;
+
+  border-radius: 8px;
+
+  background: var(--teal);
+
+  color: var(--orange);
+
+  font-family: var(--clash);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: .03em;
+
+}
+
+
+/* imagen / storyboard */
+
+.agroSpotImage {
+
+  grid-column: 2;
+
+  width: 87%;
+
+  margin-top: 30px;
+
+  margin-left: 132px;
+
+  aspect-ratio: auto;
+
+  height: auto;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: transparent;
+
+}
+
+
+.agroSpotImage img {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.agrobankPage .projectFooter {
+
+  margin-top: 70px;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .agrobankPage .projectHandwritten {
+
+    margin-left: -80px;
+
+  }
+
+  .agroMainPiece {
+
+    width: 90%;
+
+    margin-left: 60px;
+
+    margin-top: 20px;
+
+  }
+
+  .agroSpotIntro {
+
+    width: 100%;
+
+    margin-left: 0;
+
+  }
+
+  .agroSpotImage {
+
+    width: 90%;
+
+    margin-left: 60px;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .agrobankPage .projectHandwritten {
+
+    margin-left: 0;
+
+    margin-top: 15px;
+
+  }
+
+
+  .agroMainPiece {
+
+    width: 100%;
+
+    margin: 35px 0 0;
+
+  }
+
+
+  .agroMainPieceLabel {
+
+    top: -20px;
+
+  }
+
+
+  .agroPrintGrid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+
+  .agroComment {
+
+    position: static;
+
+    max-width: none;
+
+    margin-top: 15px;
+
+    text-align: left;
+
+    transform: none;
+
+  }
+
+
+  .agroSpotSection {
+
+    grid-template-columns: 1fr;
+
+    margin-top: 55px;
+
+  }
+
+
+  .agroSpotIntro {
+
+    grid-column: 1;
+
+    width: 100%;
+
+    margin: 0;
+
+  }
+
+
+  .agroSpotImage {
+
+    grid-column: 1;
+
+    width: 100%;
+
+    margin: 30px 0 0;
+
+  }
+
+}
