@@ -147,7 +147,7 @@ const EVENTS = [
   row: 0,
   duration: 1,
   type: "navy",
-  hover: true
+  link: "agrobank.html"
 },
 {
   title: "(you never know)",

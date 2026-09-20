@@ -9,7 +9,7 @@
   Lightbox para imágenes y vídeos.
 */
 
-(() => {
+
   const thumbs = [...document.querySelectorAll(".galleryThumb")];
 
   if (!thumbs.length) return;
@@ -200,5 +200,3 @@
     }
 
   });
-
-})();
