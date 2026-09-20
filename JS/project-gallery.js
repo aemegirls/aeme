@@ -1,24 +1,27 @@
 /*
   AEME — project-gallery.js
-  Convierte cualquier grupo de imágenes marcadas con class="galleryThumb"
-  en un carrusel grande al hacer clic. Se puede reutilizar en cualquier
-  página de proyecto: solo hace falta repetir el mismo HTML de galería.
-*/
-/*
-  AEME — project-gallery.js
-  Lightbox para imágenes y vídeos.
+  Lightbox para imágenes y vídeos
 */
 
+(() => {
 
   const thumbs = [...document.querySelectorAll(".galleryThumb")];
 
   if (!thumbs.length) return;
 
-  const items = thumbs.map(btn => {
+
+  /* =========================================
+     CREAR LISTA DE ELEMENTOS
+     ========================================= */
+
+  const items = thumbs.map((btn) => {
+
     const image = btn.querySelector("img");
     const video = btn.querySelector("video");
 
+    /* Si el elemento es un vídeo */
     if (video) {
+
       const source = video.querySelector("source");
 
       return {
@@ -26,22 +29,44 @@
         src: source ? source.src : video.currentSrc,
         alt: btn.getAttribute("aria-label") || ""
       };
+
     }
 
-    return {
-      type: "image",
-      src: btn.dataset.full || image.src,
-      alt: image.alt || ""
-    };
-  });
+    /* Si el elemento es una imagen */
+    if (image) {
+
+      return {
+        type: "image",
+        src: btn.dataset.full || image.currentSrc || image.src,
+        alt: image.alt || ""
+      };
+
+    }
+
+    return null;
+
+  }).filter(Boolean);
+
+
+  if (!items.length) return;
+
+
+  /* =========================================
+     CREAR LIGHTBOX
+     ========================================= */
 
   const lightbox = document.createElement("div");
+
   lightbox.className = "projectLightbox";
 
   lightbox.innerHTML = `
+
     <div class="lightboxStage">
 
-      <img class="lightboxImage" alt="">
+      <img
+        class="lightboxImage"
+        alt=""
+      >
 
       <video
         class="lightboxVideo"
@@ -49,76 +74,117 @@
         autoplay
         muted
         loop
-        playsinline>
-      </video>
+        playsinline
+      ></video>
+
 
       <button
         class="lightboxPrev"
         type="button"
-        aria-label="Previous image">
+        aria-label="Previous"
+      >
         ‹
       </button>
+
 
       <button
         class="lightboxNext"
         type="button"
-        aria-label="Next image">
+        aria-label="Next"
+      >
         ›
       </button>
+
 
       <button
         class="lightboxClose"
         type="button"
-        aria-label="Close">
+        aria-label="Close"
+      >
         ×
       </button>
 
     </div>
+
   `;
+
 
   document.body.appendChild(lightbox);
 
-  const lightboxImage = lightbox.querySelector(".lightboxImage");
-  const lightboxVideo = lightbox.querySelector(".lightboxVideo");
+
+  const lightboxImage =
+    lightbox.querySelector(".lightboxImage");
+
+  const lightboxVideo =
+    lightbox.querySelector(".lightboxVideo");
+
 
   let current = 0;
 
+
+  /* =========================================
+     MOSTRAR ELEMENTO
+     ========================================= */
+
   function show(index) {
 
-    current = (index + items.length) % items.length;
+    current =
+      (index + items.length) % items.length;
 
     const item = items[current];
 
-    /* Reset */
+
+    /* Ocultar ambos */
+
     lightboxImage.style.display = "none";
+
     lightboxVideo.style.display = "none";
 
+
+    /* Limpiar */
+
     lightboxImage.removeAttribute("src");
-    lightboxVideo.removeAttribute("src");
 
     lightboxVideo.pause();
 
-    /* IMAGE */
+    lightboxVideo.removeAttribute("src");
+
+
+    /* =====================================
+       IMAGEN
+       ===================================== */
+
     if (item.type === "image") {
 
       lightboxImage.src = item.src;
+
       lightboxImage.alt = item.alt;
+
       lightboxImage.style.display = "block";
 
     }
 
-    /* VIDEO */
-    else if (item.type === "video") {
+
+    /* =====================================
+       VÍDEO
+       ===================================== */
+
+    if (item.type === "video") {
 
       lightboxVideo.src = item.src;
+
       lightboxVideo.style.display = "block";
 
-      lightboxVideo.play().catch(() => {
-        /* Algunos navegadores pueden bloquear autoplay */
-      });
+      lightboxVideo.play().catch(() => {});
 
     }
+
   }
+
+
+  /* =========================================
+     ABRIR
+     ========================================= */
 
   function open(index) {
 
@@ -127,76 +193,132 @@
     lightbox.classList.add("isOpen");
 
     document.body.style.overflow = "hidden";
+
   }
+
+
+  /* =========================================
+     CERRAR
+     ========================================= */
 
   function close() {
 
     lightbox.classList.remove("isOpen");
 
     lightboxVideo.pause();
+
     lightboxVideo.removeAttribute("src");
 
     document.body.style.overflow = "";
+
   }
 
-  /* Click en las miniaturas */
+
+  /* =========================================
+     CLICK EN LAS IMÁGENES
+     ========================================= */
 
   thumbs.forEach((btn, index) => {
 
     btn.addEventListener("click", () => {
+
       open(index);
+
     });
 
   });
 
-  /* Flecha anterior */
+
+  /* =========================================
+     ANTERIOR
+     ========================================= */
 
   lightbox
     .querySelector(".lightboxPrev")
-    .addEventListener("click", () => {
+    .addEventListener("click", (event) => {
+
+      event.stopPropagation();
+
       show(current - 1);
+
     });
 
-  /* Flecha siguiente */
+
+  /* =========================================
+     SIGUIENTE
+     ========================================= */
 
   lightbox
     .querySelector(".lightboxNext")
-    .addEventListener("click", () => {
+    .addEventListener("click", (event) => {
+
+      event.stopPropagation();
+
       show(current + 1);
+
     });
 
-  /* Cerrar */
+
+  /* =========================================
+     CERRAR BOTÓN
+     ========================================= */
 
   lightbox
     .querySelector(".lightboxClose")
-    .addEventListener("click", close);
+    .addEventListener("click", (event) => {
 
-  /* Clicar fuera */
+      event.stopPropagation();
 
-  lightbox.addEventListener("click", event => {
+      close();
+
+    });
+
+
+  /* =========================================
+     CLIC FUERA
+     ========================================= */
+
+  lightbox.addEventListener("click", (event) => {
 
     if (event.target === lightbox) {
+
       close();
+
     }
 
   });
 
-  /* Teclado */
 
-  window.addEventListener("keydown", event => {
+  /* =========================================
+     TECLADO
+     ========================================= */
+
+  window.addEventListener("keydown", (event) => {
 
     if (!lightbox.classList.contains("isOpen")) return;
 
+
     if (event.key === "Escape") {
+
       close();
+
     }
+
 
     if (event.key === "ArrowLeft") {
+
       show(current - 1);
+
     }
 
+
     if (event.key === "ArrowRight") {
+
       show(current + 1);
+
     }
 
   });
+
+
+})();

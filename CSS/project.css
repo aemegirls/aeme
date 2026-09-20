@@ -664,3 +664,13 @@
   .trainComment { position:static; display:block; width:auto; margin:14px 0 0; transform:none; }
   .trainSparkle { display:none; }
 }
+
+.lightboxStage .lightboxVideo {
+  max-width: 92vw;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  border-radius: 14px;
+  display: none;
+  object-fit: contain;
+}

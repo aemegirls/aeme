@@ -1,93 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <link rel="icon" type="image/png" href="Assets/Icons/logo para web 2.png">
+  <link rel="icon" type="image/png" href="Assets/Icons/logo para web 2.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AEME — Agrobank</title>
+
+  <title>AEME — Un trabajo diferente</title>
+
   <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/variables.css">
   <link rel="stylesheet" href="CSS/global.css">
   <link rel="stylesheet" href="CSS/project.css">
   <link rel="stylesheet" href="CSS/search.css">
+
+  <!-- ESTILOS ESPECÍFICOS DE AGROBANK -->
+  <link rel="stylesheet" href="CSS/agrobank.css">
 </head>
+
 <body>
-  <section class="projectPage">
-    <div class="projectFrame">
-      <header class="projectHeader">
-        <div class="projectBrand">
-          <a href="index.html" aria-label="AEME home">
-            <img class="projectLogo" src="Assets/Icons/aeme%20logo%20naranja.png" alt="AEME">
-          </a>
+
+<section class="projectPage agrobankPage">
+
+  <div class="projectFrame">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="projectHeader">
+
+      <div class="projectBrand">
+        <a href="index.html" aria-label="AEME home">
+          <img
+            class="projectLogo"
+            src="Assets/Icons/aeme%20logo%20naranja.png"
+            alt="AEME"
+          >
+        </a>
+      </div>
+
+      <nav class="projectNav" aria-label="Main navigation">
+
+        <button
+          class="projectSearchButton"
+          type="button"
+          aria-label="Search"
+          title="Search"
+        >
+          ⌕
+        </button>
+
+        <a href="about.html">About</a>
+
+      </nav>
+
+    </header>
+
+
+    <main>
+
+      <!-- ================= HERO ================= -->
+
+      <section class="projectHero agroHero">
+
+        <div class="projectTitleBlock">
+
+          <div class="projectStampStack">
+
+            <span class="projectStamp lineOne">
+              Un trabajo
+            </span>
+
+            <span class="projectStamp lineTwo">
+              diferente
+            </span>
+
+          </div>
+
+
+          <p class="projectHandwritten">
+
+            <span class="projectSubtitleLight">
+              for
+            </span>
+
+            <br>
+
+            <span class="projectSubtitleMedium">
+              AgroBank
+            </span>
+
+          </p>
+
         </div>
-        <nav class="projectNav" aria-label="Main navigation">
-          <button class="projectSearchButton" type="button" aria-label="Search" title="Search — coming soon">⌕</button>
-          <a href="about.html">About</a>
-        </nav>
-      </header>
 
-      <main>
-        <section class="projectHero">
-          <div class="projectTitleBlock">
-            <div class="projectStampStack">
-              <span class="projectStamp lineOne">Un trabajo</span>
-              <span class="projectStamp lineTwo">Diferente</span>
-            </div>
-            <p class="projectHandwritten"><span class="projectSubtitleLight">for</span><br><span class="projectSubtitleMedium">Agrobank</span></p>
+      </section>
+
+
+      <!-- ================= BODY ================= -->
+
+      <section class="projectBody agroBody">
+
+        <div class="projectCopy">
+
+          <!-- COPY -->
+
+          <div class="projectText agroText">
+
+            <p>
+              AgroBank faces the challenge of encouraging generational
+              renewal in Spain's agricultural sector, making farming and
+              livestock feel like an attractive, innovative and
+              future-oriented career for young people.
+            </p>
+
+            <p>
+              Our campaign's aim was to emotionally connect with a new
+              generation that strives to avoid monotony. We showed that
+              to lead a different life, you should start with a different job.
+            </p>
+
           </div>
-        </section>
 
-        <section class="projectBody">
-          <div class="projectCopy">
-            <div class="projectText">
-              <p>AgroBank faces the challenge of encouraging generational renewal in Spain’s agricultural sector, making farming and livestock feel like an attractive, innovative and future-oriented career for young people.</p>
-              <p>Our campaign’s aim was to emotionally connect with this new generation that strives to avoid monotony. We showed that to lead a different life, you should start with a different job.</p>
-            </div>
 
-            <div class="projectPanel">
-              <div class="projectVideo" data-youtube-id="UtUFIfNIUuE">
-                <img src="https://img.youtube.com/vi/UtUFIfNIUuE/maxresdefault.jpg" alt="404 Lesson Found — YouTube video thumbnail">
-                <span class="projectVideoPlay" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-              </div>
-            </div>
-            <a class="projectPanelMascotLink" href="#" aria-label="Duo x Google Chrome" title="Duo x Google Chrome">
-              <img class="projectPanelMascot" src="Assets/Images/duo.png" alt="Duo">
-            </a>
-          </div>
-        </section>
+          <!-- PIEZA PRINCIPAL -->
 
-        <section class="projectGallery">
-          <a class="projectBackLink" href="index.html" aria-label="Back to calendar">‹</a>
-          <div class="projectGalleryRow">
-            <a class="projectDoodleLink" href="#" aria-label="D&AD project link" data-link-placeholder="true" title="Añade aquí el enlace de D&AD cuando lo tengas">
-              <span class="projectDoodleStar" aria-hidden="true"></span>
-              <img class="projectDoodlePencil" src="Assets/Icons/lapiz-2.webp" alt="">
-            </a>
+          <div class="agroMainPiece">
 
-            <button class="galleryThumb" type="button" aria-label="View image 1 larger">
-              <img src="Assets/Images/Duo-img1.jpg" alt="Laptop showing the Duo screensaver when offline">
-            </button>
-            <button class="galleryThumb" type="button" aria-label="View image 2 larger">
-              <img src="Assets/Images/Duo-img2.png" alt="Grammar lesson: fill in the blank">
-            </button>
-            <button class="galleryThumb" type="button" aria-label="View image 3 larger">
-              <img src="Assets/Images/Duo-img3.jpg" alt="Chrome's dino error screen next to Duo">
+           
+
+            <!--
+              CAMBIA ESTA IMAGEN POR EL PRINT PRINCIPAL DE AGROBANK
+            -->
+
+            <button
+              class="galleryThumb agroMainImage"
+              type="button"
+              aria-label="View AgroBank campaign print larger"
+            >
+
+              <img
+                src="Assets/Images/Agrobank-1.jpeg"
+                alt="AgroBank Un trabajo diferente campaign print"
+              >
+
             </button>
 
-            <span class="projectComment">We almost didn't submit this idea to D&amp;AD because of other's opinion… But we believe in ourselves.</span>
           </div>
-        </section>
-      </main>
 
-      <footer class="projectFooter">
-        <a class="projectEmail" href="mailto:aemegirls@gmail.com">aemegirls@gmail.com</a>
-      </footer>
-    </div>
-  </section>
-  <script src="JS/project-video.js"></script>
-  <script src="JS/project-gallery.js"></script>
-  <script src="JS/search.js"></script>
+        </div>
+
+      </section>
+
+
+      <!-- ================= PRINTS ================= -->
+
+      <section class="projectGallery agroGallery">
+
+        <!-- BACK -->
+
+        <a
+          class="projectBackLink"
+          href="index.html"
+          aria-label="Back to calendar"
+        >
+          ‹
+        </a>
+
+
+        <div class="projectGalleryRow agroPrintGrid">
+
+          <!-- PRINT 1 -->
+
+          <button
+            class="galleryThumb"
+            type="button"
+            aria-label="View AgroBank print 1 larger"
+          >
+
+            <img
+              src="Assets/Images/Agrobank-2.jpg"
+              alt="AgroBank campaign print 1"
+            >
+
+          </button>
+
+
+          <!-- PRINT 2 -->
+
+          <button
+            class="galleryThumb"
+            type="button"
+            aria-label="View AgroBank print 2 larger"
+          >
+
+            <img
+              src="Assets/Images/Agrobank-3.jpg"
+              alt="AgroBank campaign print 2"
+            >
+
+          </button>
+
+
+          <!-- PRINT 3 -->
+
+          <div class="galleryThumb agroVideoThumb">
+
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+  >
+    <source
+      src="Assets/Images/agrobank-video.mp4"
+      type="video/mp4"
+    >
+  </video>
+
+</div>
+
+
+          <!-- COMMENT -->
+
+          <span class="projectComment agroComment">
+            We wanted farming to feel less like choosing a job
+            and more like choosing a different way of life.
+          </span>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= SPOT PROPOSAL ================= -->
+
+     
+        <!--
+          AQUÍ PUEDES PONER:
+
+          1. una imagen del storyboard
+          2. un frame / key visual
+          3. una imagen del tratamiento
+          4. varias imágenes de la propuesta
+
+          No utilizamos YouTube porque el spot no está producido.
+        -->
+
+
+      
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="projectFooter">
+
+      <a
+        class="projectEmail"
+        href="mailto:aemegirls@gmail.com"
+      >
+        aemegirls@gmail.com
+      </a>
+
+    </footer>
+
+  </div>
+
+</section>
+
+
+<!-- IMPORTANTE:
+     NO cargamos project-video.js porque AgroBank NO tiene YouTube.
+-->
+
+<script src="JS/project-gallery.js"></script>
+<script src="JS/search.js"></script>
+
 </body>
 </html>

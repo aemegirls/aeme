@@ -22,8 +22,8 @@
    ========================================================= */
 
 .agrobankPage .projectHandwritten {
-  margin-left: -130px;
-  margin-top: 72px;
+  margin-left: -35px;
+  margin-top: 64px;
 }
 
 
@@ -61,7 +61,7 @@
 
   width: 87%;
 
-  margin-top: -95px;
+  margin-top: -160px;
   margin-left: 132px;
 
 }
@@ -393,7 +393,25 @@
   }
 
 }
+/* =========================================================
+   AGROBANK — VIDEO DEL MISMO TAMAÑO QUE LOS PRINTS
+   ========================================================= */
 
+.agroPrintGrid .agroVideoThumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.agroPrintGrid .agroVideoThumb video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
 
 /* =========================================================
    MOBILE
@@ -477,5 +495,6 @@
     margin: 30px 0 0;
 
   }
+
 
 }
