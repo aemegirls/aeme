@@ -155,7 +155,7 @@ const EVENTS = [
   row: 1,
   duration: 1,
   type: "navy",
-  hover: true
+  link: "agrobank.html"
 },
  // DOMINGO
   {
